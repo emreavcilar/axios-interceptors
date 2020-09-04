@@ -3,7 +3,6 @@ import { Container, Button, Modal } from "react-bootstrap";
 import VanillaToasts from 'vanillatoasts';
 import axios from 'axios';
 
-
 function App() {
   const [isHandlerEnabled, setIsHandlerEnabled] = useState(true);
   const isFirstRun = useRef(true);
@@ -14,7 +13,7 @@ function App() {
     withCredentials: true,
     headers: {
       common: {
-        'Accept-Language': 'tr-TR',
+        'Accept-Language': 'tr-TR', 
       },
     },
   });
@@ -36,13 +35,6 @@ function App() {
   axiosInstance.interceptors.response.use(
     response => {
       if (response.config.isHandlerEnabled) {
-        // VanillaToasts.create({
-        //   title: 'Request succeeded!',
-        //   text: `Request done successfully: ${response.config.url}`,
-        //   type: 'success',
-        //   timeout: timeout
-        // });
-
         setModalOptions({
           state: true,
           description: `Request done successfully: ${response.config.url}`,
@@ -53,13 +45,6 @@ function App() {
     },
     error => {
       if (error.config.isHandlerEnabled) {
-        // VanillaToasts.create({
-        //   title: `Request failed: ${error.response.status}`,
-        //   text: `Unfortunately error happened during request: ${error.config.url}`,
-        //   type: 'error',
-        //   timeout: timeout
-        // });
-
         setModalOptions({
           state: true,
           description: `Unfortunately error happened during request: ${error.config.url}`,
@@ -180,8 +165,6 @@ function App() {
             </Button>
         </Modal.Footer>
       </Modal>
-
-
     </div>
   );
 }
