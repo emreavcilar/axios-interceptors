@@ -7,7 +7,7 @@ function App() {
   const [isHandlerEnabled, setIsHandlerEnabled] = useState(true);
   const isFirstRun = useRef(true);
   const timeout = 4000;
-  const [modalOptions, setModalOptions] = useState({ state: false, description: null })
+  const [modalOptions, setModalOptions] = useState({ state: false, description: null, title:null })
   const axiosInstance = axios.create({
     baseURL: 'https://www.mocky.io/',
     withCredentials: true,
@@ -137,6 +137,17 @@ function App() {
               Disable Handlers
             </Button>
           </div>
+
+          <p className="mt-3">
+            Read more:
+            <a
+              href="https://medium.com/@emreavcilar/javascript-request-and-response-handling-with-axios-3c39317530ec"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Request and response handling with Axios
+            </a>
+          </p>
 
         </section>
       </Container>
